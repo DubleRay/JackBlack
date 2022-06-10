@@ -109,13 +109,13 @@ class BlackJack{
 
         //Игрок получает карты//
 
-        let fIrstPlayercard = this.Deck.GetRandomCard();
-        this.Gamer.TakeCard(fIrstPlayercard);
+        let firstPlayercard = this.Deck.GetRandomCard();
+        this.Gamer.TakeCard(firstPlayercard);
 
         let secondPlayercard = this.Deck.GetRandomCard();
         this.Gamer.TakeCard(secondPlayercard);
 
-        if (fIrstPlayercard.value=="ace"&&secondPlayercard.value=="ace"){
+        if (firstPlayercard.value=="ace"&&secondPlayercard.value=="ace"){
             this.Gamer.score=21
         }
         console.log(this.Gamer.Name + "'s score: " + this.Gamer.Score);
@@ -144,16 +144,16 @@ class BlackJack{
             while( resultCoice!= false && resultCoice!=null)
             { 
 
-                let addPlayercard = this.Deck.GetRandomCard();
-                this.Gamer.TakeCard(addPlayercard);
+                let additionalPlayercard = this.Deck.GetRandomCard();
+                this.Gamer.TakeCard(additionalPlayercard);
                 console.log(this.Gamer.Name + "'s score: " + this.Gamer.Score);
-                let handString1 = "";
+                let PlayerhandString = "";
                 for(let i = 0; i<this.Gamer.Hand.length; i++){
-                    let handCard1 = this.Gamer.Hand[i];
-                    handString1 += handCard1.CardName + ", ";
+                    let PlayerhandCard = this.Gamer.Hand[i];
+                    PlayerhandString += PlayerhandCard.CardName + ", ";
                 }
         
-                console.log(handString1);
+                console.log(PlayerhandString);
 
                 if (this.Gamer.score > 21){
                     return console.log("Game over Gamers overdose Diller won!")
@@ -168,13 +168,13 @@ class BlackJack{
 
         //Диллер получает карты//
 
-        let fIrstDillercard = this.Deck.GetRandomCard();
-        this.Diller.TakeCard(fIrstDillercard);
+        let firstDillercard = this.Deck.GetRandomCard();
+        this.Diller.TakeCard(firstDillercard);
 
         let secondDillercard = this.Deck.GetRandomCard();
         this.Diller.TakeCard(secondDillercard);
 
-        if (fIrstDillercard.value=="ace"&&secondDillercard.value=="ace"){
+        if (firstDillercard.value=="ace"&&secondDillercard.value=="ace"){
             this.Diller.score=21
         }
         if (this.Diller.score > 21){
@@ -186,8 +186,8 @@ class BlackJack{
         else{
             while(this.Diller.score<17)
             {
-                let addDillercard = this.Deck.GetRandomCard();
-                this.Diller.TakeCard(addDillercard);
+                let additionalDillercard = this.Deck.GetRandomCard();
+                this.Diller.TakeCard(additionalDillercard);
                 if (this.Diller.score>21)
                     return console.log("Dillers overdose Game over "+this.Gamer.name+" won!")
             }
@@ -195,13 +195,13 @@ class BlackJack{
 
         console.log( "Diller's score: " + this.Diller.Score);
         
-        let handString2 = "";
+        let DillerhandString = "";
         for(let i = 0; i<this.Diller.Hand.length; i++){
-            let handCard2 = this.Diller.Hand[i];
-            handString2 += handCard2.CardName + ", ";
+            let DillerhandCard = this.Diller.Hand[i];
+            DillerhandString += DillerhandCard.CardName + ", ";
         }
 
-        console.log(handString2);
+        console.log(DillerhandString);
 
         //Резульаты игры//
 
