@@ -64,9 +64,9 @@ class Gambler{
     }
 
     Choice(){
-    let promtresult = prompt("Take more?");
-    if (promtresult==="yes") return true;
-    else if (promtresult==="no") return false;
+    let promtResult = prompt("Take more?");
+    if (promtResult==="yes") return true;
+    else if (promtResult==="no") return false;
     else return null;
     }
 }
@@ -109,13 +109,13 @@ class BlackJack{
 
         //Игрок получает карты//
 
-        let firstplayercard = this.Deck.GetRandomCard();
-        this.Gamer.TakeCard(firstplayercard);
+        let firstPlayerCard = this.Deck.GetRandomCard();
+        this.Gamer.TakeCard(firstPlayerCard);
 
-        let secondplayercard = this.Deck.GetRandomCard();
-        this.Gamer.TakeCard(secondplayercard);
+        let secondPlayerCard = this.Deck.GetRandomCard();
+        this.Gamer.TakeCard(secondPlayerCard);
 
-        if (firstplayercard.value=="ace"&&secondplayercard.value=="ace"){
+        if (firstPlayerCard.value=="ace"&&secondPlayerCard.value=="ace"){
             this.Gamer.score=21
         }
         console.log(this.Gamer.Name + "'s score: " + this.Gamer.Score);
@@ -144,16 +144,16 @@ class BlackJack{
             while( resultCoice!= false && resultCoice!=null)
             { 
 
-                let additionalplayercard = this.Deck.GetRandomCard();
-                this.Gamer.TakeCard(additionalplayercard);
+                let additionalPlayerCard = this.Deck.GetRandomCard();
+                this.Gamer.TakeCard(additionalPlayerCard);
                 console.log(this.Gamer.Name + "'s score: " + this.Gamer.Score);
-                let playerhandstring = "";
+                let playerHandString = "";
                 for(let i = 0; i<this.Gamer.Hand.length; i++){
-                    let playerhandcard = this.Gamer.Hand[i];
-                    playerhandstring += playerhandcard.CardName + ", ";
+                    let playerHandCard = this.Gamer.Hand[i];
+                    playerHandString += playerHandCard.CardName + ", ";
                 }
         
-                console.log(playerhandstring);
+                console.log(playerHandString);
 
                 if (this.Gamer.score > 21){
                     return console.log("Game over Gamers overdose Diller won!")
@@ -168,13 +168,13 @@ class BlackJack{
 
         //Диллер получает карты//
 
-        let firstdillercard = this.Deck.GetRandomCard();
-        this.diller.TakeCard(firstdillercard);
+        let firstDillerCard = this.Deck.GetRandomCard();
+        this.diller.TakeCard(firstDillerCard);
 
-        let seconddillercard = this.Deck.GetRandomCard();
-        this.Diller.TakeCard(seconddillercard);
+        let secondDillerCard = this.Deck.GetRandomCard();
+        this.Diller.TakeCard(secondDillerCard);
 
-        if (firstdillercard.value=="ace"&&seconddillercard.value=="ace"){
+        if (firstDillerCard.value=="ace"&&secondDillerCard.value=="ace"){
             this.Diller.score=21
         }
         if (this.Diller.score > 21){
@@ -186,8 +186,8 @@ class BlackJack{
         else{
             while(this.Diller.score<17)
             {
-                let additionaldillercard = this.Deck.GetRandomCard();
-                this.Diller.TakeCard(additionaldillercard);
+                let additionalDillerCard = this.Deck.GetRandomCard();
+                this.Diller.TakeCard(additionalDillerCard);
                 if (this.Diller.score>21)
                     return console.log("Dillers overdose Game over "+this.Gamer.name+" won!")
             }
@@ -195,13 +195,13 @@ class BlackJack{
 
         console.log( "Diller's score: " + this.Diller.Score);
         
-        let dillerhandstring = "";
+        let dillerHandString = "";
         for(let i = 0; i<this.Diller.Hand.length; i++){
-            let dillerhandcard = this.Diller.Hand[i];
-            dillerhandstring += dillerhandcard.CardName + ", ";
+            let dillerHandCard = this.Diller.Hand[i];
+            dillerHandString += dillerHandCard.CardName + ", ";
         }
 
-        console.log(dillerhandstring);
+        console.log(dillerHandString);
 
         //Резульаты игры//
 
