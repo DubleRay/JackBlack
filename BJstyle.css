@@ -1,0 +1,84 @@
+*{box-sizing: border-box;}
+@font-face {
+    font-family: "Title";
+    src: url("Fonts/RezaZulmiSans.ttf");
+}
+@font-face {
+    font-family: "Other";
+    src: url("Fonts/RezaZulmiSans.ttf");
+}
+div{
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#Title{ font-family:"Title";  font-size: 110px; clear: both};
+
+#ScoreTable{
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+li{
+    background-color:
+    rgb(252, 99, 99);
+    width: 300px;
+    padding: 8px;
+    display: inline-block;
+    text-align: left;
+}
+#GamersScore{
+    border-radius: 5px 0px 0px 5px;
+}
+#DillersScore{
+    border-radius: 0px 5px 5px 0px;
+}
+#CardsTable{
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+#PlayersCards{
+    background-color:#68f098;
+    border-radius: 10px;
+    height:350px;
+    width: 400px;
+}
+#DillersCards{
+    background-color: #f0d868;
+    border-radius: 10px;
+    height:350px;
+    width: 400px;
+}
+button{
+    font-family:"Title";
+    font-size: 30px;
+    border-radius: 5px;
+    border: 0px;}
+#NewGame{
+    background-color:rgb(255, 252, 93);
+    margin-left: auto;
+    margin-right:auto ;
+    cursor: pointer;
+}
+#ButtonBlock{
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+#More{
+    background-color: rgb(94, 253, 94);
+    cursor: pointer;
+    margin-right: 10px;
+}
+#Enough{
+    background-color: rgba(250, 56, 56);
+    cursor: pointer;
+}
+#Winer{
+    font-family:"Title";
+    font-size: 40px;
+    clear: both;
+    display: none;
+}

@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head><meta charset="utf-8"></head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>BlackJack</title>
+    <link rel="stylesheet" type="text/css" href="BJstyle.css">
         <body>
             <script src="BlackJack2.0.js"></script>
-
+            <div id="Title">BlackJack!</div>
+            <div>
+                <button id="NewGame">Начать игру</button>
+            </div>
             
+            <div id="GameField" style="display:none;">
+                <ul id="ScoreTable" style="display:inline-flex">
+                        <li id="GamersScore">Счёт игрока:</li>
+                        <li id="DillersScore">Счёт Диллера:</li>
+                </ul>
+
+
+                <table id="CardsTable">
+                    <td id="PlayersCards">Карты игрока</td>
+                    <td id="DillersCards">Карты Диллера</td>
+                </table>
+
+                <div id="ButtonBlock">
+                    <button id="More">Еще  </button>
+                    <button id="Enough">Хватит</button>
+                </div>
+                <div id="Winer">Победитель:</div>
+            </div>
         </body>
 
 </html>
