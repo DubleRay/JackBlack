@@ -1,3 +1,67 @@
+var gameField;
+var newGame;
+var gamersScore;
+var dillersScore;
+var playersCards;
+var dillerCards;
+var more;
+var enough;
+var winer;
+window.onload = function(){
+    gameField = document.getElementById('GameField');
+    newGame = document.getElementById('NewGame');
+    gamersScore = document.getElementById('GamersScore');
+    dillersScore = document.getElementById('DillersScore');
+    playersCards = document.getElementById('PlayersCards');
+    dillerCards = document.getElementById('DillerCards');
+    more = document.getElementById('More');
+    enough = document.getElementById('Enough');
+    winer = document.getElementById('Winer');
+
+    newGame.addEventListener('click',ShowGameField);
+    more.addEventListener('click',playerChoiceMore);
+    enough.addEventListener('click',playerChoiceEnough);
+}
+
+function ShowGameField(e){
+    gameField.style.display='table';
+    e.target.style.display='none'
+    
+    var bj = new BlackJack("DubleRay");
+    bj.StartGame();
+}
+
+
+function playerChoiceMore(){
+    Choice(1);
+    }
+function playerChoiceEnough(){
+    Choice(0);
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class Deck{
     constructor(){
@@ -63,11 +127,17 @@ class Gambler{
         this.score+=card.score;
     }
 
-    Choice(){
-    let promtResult = prompt("Take more?");
-    if (promtResult==="yes") return true;
-    else if (promtResult==="no") return false;
-    else return null;
+    Choice(x){
+        return new Promise((resolve) => {
+            let result
+            if (x!=0){
+                result = true
+            }
+            else{
+                result = false;
+            }
+            resolve(result)
+        })
     }
 }
 
@@ -103,7 +173,7 @@ class BlackJack{
     }
 
 
-    StartGame(){
+    async StartGame(){
         console.log("Game start");
         console.log("The player: " + this.Gamer.name);
 
@@ -115,7 +185,7 @@ class BlackJack{
         let secondPlayerCard = this.Deck.GetRandomCard();
         this.Gamer.TakeCard(secondPlayerCard);
 
-        if (firstPlayerCard.value=="ace"&&secondPlayerCard.value=="ace"){
+        if (firstPlayerCard.value == "ace" && secondPlayerCard.value == "ace"){
             this.Gamer.score=21
         }
         console.log(this.Gamer.Name + "'s score: " + this.Gamer.Score);
@@ -127,7 +197,7 @@ class BlackJack{
 
         console.log(handString);
 
-        if (this.Gamer.score > 21){
+        if (this.Gamer.score > 21){34
             return console.log("Game over Gamers overdose Diller won!")
         }
         else if (this.Gamer.score == 21){
@@ -136,12 +206,7 @@ class BlackJack{
         else{
             let resultCoice = this.Gamer.Choice();
 
-            while(resultCoice==null)
-            {
-                console.log("Wrong answer baka choose yes or no!")
-                resultCoice = this.Gamer.Choice();
-            }
-            while( resultCoice!= false && resultCoice!=null)
+            while( resultCoice== true)
             { 
 
                 let additionalPlayerCard = this.Deck.GetRandomCard();
@@ -152,7 +217,7 @@ class BlackJack{
                     let playerHandCard = this.Gamer.Hand[i];
                     playerHandString += playerHandCard.CardName + ", ";
                 }
-        
+        await resultCoice;
                 console.log(playerHandString);
 
                 if (this.Gamer.score > 21){
@@ -162,19 +227,19 @@ class BlackJack{
                     return console.log("BlackJack! Player:"+this.Gamer.name+" "+"Win!")
                 }
                 
-                resultCoice=this.Gamer.Choice();
+                resultCoice= await this.Gamer.Choice();
             }
         }
 
         //Диллер получает карты//
 
         let firstDillerCard = this.Deck.GetRandomCard();
-        this.diller.TakeCard(firstDillerCard);
+        this.Diller.TakeCard(firstDillerCard);
 
         let secondDillerCard = this.Deck.GetRandomCard();
         this.Diller.TakeCard(secondDillerCard);
 
-        if (firstDillerCard.value=="ace"&&secondDillerCard.value=="ace"){
+        if (firstDillerCard.value == "ace" && secondDillerCard.value == "ace"){
             this.Diller.score=21
         }
         if (this.Diller.score > 21){
@@ -217,6 +282,3 @@ class BlackJack{
     }
 }
 
-
-var bj = new BlackJack("DubleRay");
-bj.StartGame();
