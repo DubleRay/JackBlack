@@ -1,19 +1,14 @@
-*{box-sizing: border-box;}
+*{box-sizing: border-box; font-family:'Title'; text-align: center;}
 @font-face {
     font-family: "Title";
-    src: url("Fonts/RezaZulmiSans.ttf");
-}
-@font-face {
-    font-family: "Other";
     src: url("Fonts/RezaZulmiSans.ttf");
 }
 div{
     display: table;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
 }
-#Title{ font-family:"Title";  font-size: 110px; clear: both};
+#Title{  font-size: 110px; clear: both};
 
 #ScoreTable{
     display: inline-flex;
@@ -34,28 +29,12 @@ li{
 #DillersScore{
     border-radius: 0px 5px 5px 0px;
 }
-#CardsTable{
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
-}
-#PlayersCards{
-    background-color:#68f098;
-    border-radius: 10px;
-    height:350px;
-    width: 400px;
-}
-#DillersCards{
-    background-color: #f0d868;
-    border-radius: 10px;
-    height:350px;
-    width: 400px;
-}
 button{
-    font-family:"Title";
     font-size: 30px;
-    border-radius: 5px;
-    border: 0px;}
+    border-radius: 10px;
+    border: 0px;
+    padding: 10px;
+}
 #NewGame{
     background-color:rgb(255, 252, 93);
     margin-left: auto;
@@ -63,22 +42,39 @@ button{
     cursor: pointer;
 }
 #ButtonBlock{
-    display: table;
+    display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 0.5%;
 }
 #More{
-    background-color: rgb(94, 253, 94);
+    background-color: #68f098;
     cursor: pointer;
-    margin-right: 10px;
+    width: 170px;
 }
 #Enough{
-    background-color: rgba(250, 56, 56);
+    background-color: rgb(252, 99, 99);
     cursor: pointer;
+    width: 170px;
 }
 #Winer{
-    font-family:"Title";
     font-size: 40px;
     clear: both;
-    display: none;
+    margin-left: 33%;
+    margin-top: 3%;
+}
+#CardsTable{
+    display: inline-block;
+}
+#PlayersCards{
+    background-color:#68f098;
+    border-radius: 20px;
+    height:250px;
+    width: 400px;
+}
+#DillersCards{
+    background-color: #f0d868;
+    border-radius: 20px;
+    height:250px;
+    width: 400px;
 }
